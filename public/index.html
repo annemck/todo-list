@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/bundle.js"></script>
+    <title>ToDo List</title>
+  </head>
+  <body>
+    <div id="app">
+      
+      <h1>ToDo's</h1>
+      
+      <input type="text" class="text-input" v-model="newThing">
+      <label>Low</label>
+      <input type="radio"  value="low" v-model="newPriority">
+      <label>High</label>
+      <input type="radio" value="high" v-model="newPriority">
+      <button v-on:click="addNewThing">Save Item</button>
+      
+      <ul>
+        <li v-for="thing in things" v-bind:class="thing.priority === 'high' ? 'high' : 'low'">{{ thing.title }}</li>
+      </ul>
+      
+    </div>
+  </body>
+</html>
